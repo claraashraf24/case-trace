@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: casetrace_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: casetrace_user
+      POSTGRES_PASSWORD: casetrace_password
+      POSTGRES_DB: casetrace_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - casetrace_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  casetrace_postgres_data:
